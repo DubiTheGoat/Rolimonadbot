@@ -5,8 +5,11 @@ const path = require("path");
 
 // List your env files here
 const accounts = [
-  ".env.account1",
-  ".env.account2"
+  "env.account1.txt",
+  "env.account2.txt",
+  "env.account3.txt",
+  "env.account4.txt",
+  "env.account5.txt"
   // add ".env.account3", etc.
 ];
 
@@ -42,3 +45,4 @@ accounts.forEach((envFile, i) => {
     console.log(`❌ Account ${i + 1} exited with code ${code}`);
   });
 });
+
