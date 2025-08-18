@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  adbot1:
+    build: .
+    container_name: adbot1
+    env_file:
+      - .env.account1
+    # Map this container's internal 8080 to host 8080 (optional)
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  adbot2:
+    build: .
+    container_name: adbot2
+    env_file:
+      - .env.account2
+    # Map to a different host port to avoid conflicts (optional)
+    ports:
+      - "8081:8080"
+    restart: unless-stopped
+
+# To add more accounts, duplicate a service block (adbot3, adbot4, ...)
+# and point env_file to a new .env.accountN file. You can omit 'ports' if you don't
+# need to access the health endpoint for that instance.

@@ -1,0 +1,18 @@
+# Multi-account runner for the Rolimons ad poster
+FROM node:18-alpine
+WORKDIR /app
+
+# Copy package manifests first for better caching
+COPY package.json package-lock.json* ./
+RUN npm install --production || npm install --production
+
+# Copy source
+COPY index.js config.json ./
+
+# Default envs (can be overridden by compose/env files)
+ENV NODE_ENV=production
+
+# The app listens on 8080 inside the container (hardcoded in index.js)
+EXPOSE 8080
+
+CMD ["node", "index.js"]
