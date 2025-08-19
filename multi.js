@@ -9,7 +9,8 @@ const accounts = [
   "env.account2.txt",
   "env.account3.txt",
   "env.account4.txt",
-  "env.account5.txt"
+  "env.account5.txt",
+  "env.account6.txt"
   // add ".env.account3", etc.
 ];
 
@@ -45,4 +46,5 @@ accounts.forEach((envFile, i) => {
     console.log(`❌ Account ${i + 1} exited with code ${code}`);
   });
 });
+
 
